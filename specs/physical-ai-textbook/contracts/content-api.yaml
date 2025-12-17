@@ -1,0 +1,336 @@
+openapi: 3.0.0
+info:
+  title: Physical AI & Humanoid Robotics Textbook Content API
+  description: API for accessing textbook content, exercises, and related resources
+  version: 1.0.0
+servers:
+  - url: https://physical-ai-textbook.github.io/api
+    description: GitHub Pages API endpoint
+
+paths:
+  /modules:
+    get:
+      summary: Get all textbook modules
+      description: Retrieve a list of all available modules in the textbook
+      responses:
+        '200':
+          description: List of modules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Module'
+
+  /modules/{moduleId}:
+    get:
+      summary: Get specific module
+      description: Retrieve details of a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the module
+      responses:
+        '200':
+          description: Module details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '404':
+          description: Module not found
+
+  /modules/{moduleId}/sections:
+    get:
+      summary: Get sections in a module
+      description: Retrieve all sections within a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the module
+      responses:
+        '200':
+          description: List of sections in the module
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Section'
+
+  /sections/{sectionId}:
+    get:
+      summary: Get specific section
+      description: Retrieve details of a specific section
+      parameters:
+        - name: sectionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the section
+      responses:
+        '200':
+          description: Section details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Section'
+        '404':
+          description: Section not found
+
+  /exercises:
+    get:
+      summary: Get all exercises
+      description: Retrieve all exercises in the textbook
+      parameters:
+        - name: moduleId
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter by module ID
+        - name: difficulty
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [beginner, intermediate, advanced]
+          description: Filter by difficulty level
+      responses:
+        '200':
+          description: List of exercises
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Exercise'
+
+  /code-examples:
+    get:
+      summary: Get all code examples
+      description: Retrieve all code examples in the textbook
+      parameters:
+        - name: moduleId
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter by module ID
+        - name: language
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [python, c++, bash, xml, urdf]
+          description: Filter by programming language
+      responses:
+        '200':
+          description: List of code examples
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CodeExample'
+
+components:
+  schemas:
+    Module:
+      type: object
+      required:
+        - id
+        - title
+        - description
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the module
+          example: "module-1-ros2"
+        title:
+          type: string
+          description: Display title of the module
+          example: "The Robotic Nervous System (ROS 2)"
+        description:
+          type: string
+          description: Brief overview of the module content
+          example: "Introduction to ROS 2 nodes, topics, services, and Python control"
+        learningObjectives:
+          type: array
+          items:
+            type: string
+          description: List of learning objectives for the module
+          example: ["Master ROS 2 nodes and topics", "Implement Python control via rclpy"]
+        duration:
+          type: integer
+          description: Estimated duration to complete in weeks
+          example: 3
+        prerequisites:
+          type: array
+          items:
+            type: string
+          description: Prerequisites for this module
+          example: ["Basic Python programming", "Understanding of robotics concepts"]
+        sections:
+          type: array
+          items:
+            type: string
+          description: List of section IDs in this module
+          example: ["section-1-1", "section-1-2", "section-1-3"]
+
+    Section:
+      type: object
+      required:
+        - id
+        - title
+        - moduleId
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the section
+          example: "section-1-1"
+        title:
+          type: string
+          description: Display title of the section
+          example: "ROS 2 Nodes and Topics"
+        moduleId:
+          type: string
+          description: Reference to parent module ID
+          example: "module-1-ros2"
+        order:
+          type: integer
+          description: Position within the module
+          example: 1
+        contentPath:
+          type: string
+          description: Path to the content file
+          example: "/docs/module-1-ros2/ros-nodes-topics.md"
+        learningObjectives:
+          type: array
+          items:
+            type: string
+          description: Specific learning objectives for this section
+          example: ["Understand ROS 2 node architecture", "Create publisher and subscriber nodes"]
+        codeExamples:
+          type: array
+          items:
+            type: string
+          description: List of code example IDs in this section
+          example: ["code-1-1", "code-1-2"]
+        exercises:
+          type: array
+          items:
+            type: string
+          description: List of exercise IDs in this section
+          example: ["exercise-1-1", "exercise-1-2"]
+        assets:
+          type: array
+          items:
+            type: string
+          description: List of asset file paths used in this section
+          example: ["/static/img/ros-architecture.png"]
+
+    Exercise:
+      type: object
+      required:
+        - id
+        - title
+        - type
+        - difficulty
+        - instructions
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the exercise
+          example: "exercise-1-1"
+        title:
+          type: string
+          description: Exercise title
+          example: "Create a Simple ROS 2 Publisher"
+        moduleId:
+          type: string
+          description: Reference to parent module ID
+          example: "module-1-ros2"
+        sectionId:
+          type: string
+          description: Reference to parent section ID
+          example: "section-1-1"
+        type:
+          type: string
+          enum: [practical, theoretical, coding, research]
+          description: Type of exercise
+          example: "coding"
+        difficulty:
+          type: string
+          enum: [beginner, intermediate, advanced]
+          description: Difficulty level
+          example: "beginner"
+        instructions:
+          type: string
+          description: Detailed instructions for the exercise
+          example: "Create a ROS 2 publisher node that publishes a string message every second..."
+        solution:
+          type: string
+          description: Solution to the exercise (may be restricted)
+          example: "# Python code for the publisher node..."
+        evaluationCriteria:
+          type: array
+          items:
+            type: string
+          description: How the exercise will be evaluated
+          example: ["Correct implementation of publisher", "Proper node structure"]
+
+    CodeExample:
+      type: object
+      required:
+        - id
+        - title
+        - language
+        - code
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the code example
+          example: "code-1-1"
+        title:
+          type: string
+          description: Title/description of the example
+          example: "Simple ROS 2 Publisher Node"
+        moduleId:
+          type: string
+          description: Reference to parent module ID
+          example: "module-1-ros2"
+        sectionId:
+          type: string
+          description: Reference to parent section ID
+          example: "section-1-1"
+        language:
+          type: string
+          enum: [python, c++, bash, xml, urdf, javascript]
+          description: Programming language of the example
+          example: "python"
+        code:
+          type: string
+          description: The actual code content
+          example: "import rclpy\nfrom rclpy.node import Node\n\nclass MinimalPublisher(Node):\n    def __init__(self):\n        super().__init__('minimal_publisher')\n        # Your code here"
+        explanation:
+          type: string
+          description: Text explaining the code
+          example: "This example demonstrates how to create a simple publisher node in ROS 2..."
+        dependencies:
+          type: array
+          items:
+            type: string
+          description: List of required packages/libraries
+          example: ["rclpy", "std_msgs"]
+        output:
+          type: string
+          description: Expected output or behavior
+          example: "Publishes a message to the 'topic' every second"
