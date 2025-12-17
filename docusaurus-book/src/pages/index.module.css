@@ -1,0 +1,713 @@
+/**
+ * CSS module for book-focused homepage
+ */
+
+/* Book-focused hero section */
+.bookHero {
+  padding: 4rem 0;
+  width: 100%;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html[data-theme='dark'] .bookHero {
+  background: linear-gradient(135deg, #0c4a6e 0%, #082f49 100%);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem 0;
+  text-align: left;
+}
+
+.bookBadge {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mainTitle {
+  font-size: 3rem !important;
+  margin-bottom: 1rem !important;
+  color: #1e293b !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  position: relative;
+  word-break: break-word; /* Ensure long titles wrap properly */
+}
+
+html[data-theme='dark'] .mainTitle {
+  color: #f1f5f9 !important;
+}
+
+.mainTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  border-radius: 2px;
+}
+
+.tagline {
+  font-size: 1.5rem !important;
+  color: #64748b !important;
+  margin-bottom: 1.5rem !important;
+  font-weight: 500;
+  font-style: italic;
+  word-break: break-word; /* Ensure long taglines wrap properly */
+}
+
+html[data-theme='dark'] .tagline {
+  color: #cbd5e1 !important;
+}
+
+.heroDescription {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin: 1.5rem 0 2rem;
+  color: #475569;
+  max-width: 600px;
+  word-break: break-word; /* Ensure long text wraps properly */
+}
+
+html[data-theme='dark'] .heroDescription {
+  color: #94a3b8;
+}
+
+.heroButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Book cover design */
+.bookCover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.coverDesign {
+  width: 200px;
+  height: 300px;
+  background: linear-gradient(160deg, #1e3a8a 0%, #312e81 100%);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.coverDesign::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
+  background-size: 200% 200%;
+  animation: shine 4s infinite linear;
+}
+
+@keyframes shine {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.coverTitle {
+  text-align: center;
+  color: white;
+  padding: 1.5rem 1rem;
+  z-index: 2;
+  width: 100%;
+}
+
+.coverTitle h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.coverSubtitle {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: white;
+  margin: 0;
+  opacity: 0.8;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.coverDecoration {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+}
+
+.coverPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Realistic book spine effect */
+.coverDesign::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent);
+  border-radius: 2px 0 0 2px;
+}
+
+/* Page edge effect */
+.pageEdge {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+  z-index: 3;
+}
+
+.bookStats {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.statItem {
+  text-align: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  min-width: 70px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+html[data-theme='dark'] .statItem {
+  background: #1e293b;
+}
+
+.statItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #dbeafe, transparent);
+  z-index: -1;
+}
+
+html[data-theme='dark'] .statItem::before {
+  background: linear-gradient(135deg, #1e3a8a, transparent);
+}
+
+.statItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.statNumber {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #2563eb;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+html[data-theme='dark'] .statNumber {
+  color: #60a5fa;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+html[data-theme='dark'] .statLabel {
+  color: #94a3b8;
+}
+
+/* Features section */
+.featuresSection {
+  padding: 5rem 0;
+  background: white;
+}
+
+html[data-theme='dark'] .featuresSection {
+  background: #0f172a;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  color: #1e293b;
+  font-weight: 800;
+  word-break: break-word; /* Ensure long titles wrap properly */
+}
+
+html[data-theme='dark'] .sectionTitle {
+  color: #f1f5f9;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #64748b;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  word-break: break-word; /* Ensure long subtitles wrap properly */
+}
+
+html[data-theme='dark'] .sectionSubtitle {
+  color: #94a3b8;
+}
+
+.featureCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 100%;
+  border: 1px solid #e2e8f0;
+}
+
+html[data-theme='dark'] .featureCard {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.featureHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.featureIcon {
+  font-size: 2rem;
+  margin-right: 0.75rem;
+}
+
+.moduleLabel {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+html[data-theme='dark'] .moduleLabel {
+  background: #0c4a6e;
+  color: #7dd3fc;
+}
+
+.featureTitle {
+  margin-bottom: 1rem;
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 700;
+  word-break: break-word; /* Ensure long titles wrap properly */
+}
+
+html[data-theme='dark'] .featureTitle {
+  color: #f1f5f9;
+}
+
+.featureDescription {
+  margin-bottom: 1.5rem;
+  color: #475569;
+  line-height: 1.7;
+  word-break: break-word; /* Ensure long descriptions wrap properly */
+}
+
+html[data-theme='dark'] .featureDescription {
+  color: #cbd5e1;
+}
+
+.featureLink {
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.featureLink:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* Outcomes section */
+.outcomesSection {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+html[data-theme='dark'] .outcomesSection {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.outcomeCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+html[data-theme='dark'] .outcomeCard {
+  background: #1e293b;
+}
+
+.outcomeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #2563eb, #0ea5e9);
+}
+
+.outcomeTitle {
+  margin: 0 0 1rem 0;
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 700;
+  word-break: break-word; /* Ensure long titles wrap properly */
+}
+
+html[data-theme='dark'] .outcomeTitle {
+  color: #f1f5f9;
+}
+
+.outcomeDescription {
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
+  word-break: break-word; /* Ensure long descriptions wrap properly */
+}
+
+html[data-theme='dark'] .outcomeDescription {
+  color: #cbd5e1;
+}
+
+/* Testimonials section */
+.testimonialsSection {
+  padding: 5rem 0;
+  background: white;
+}
+
+html[data-theme='dark'] .testimonialsSection {
+  background: #0f172a;
+}
+
+.testimonialCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  height: 100%;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html[data-theme='dark'] .testimonialCard {
+  background: #1e293b;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.quoteIcon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3.5rem;
+  color: #e2e8f0;
+  line-height: 1;
+  font-family: Georgia, serif;
+  z-index: 1;
+}
+
+html[data-theme='dark'] .quoteIcon {
+  color: #334155;
+}
+
+.testimonialText {
+  font-style: italic;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  font-size: 1.1rem;
+  text-align: center;
+  padding-top: 1rem;
+  word-break: break-word; /* Ensure long text wraps properly */
+}
+
+html[data-theme='dark'] .testimonialText {
+  color: #cbd5e1;
+}
+
+.testimonialAuthor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonialRole {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+html[data-theme='dark'] .testimonialRole {
+  color: #94a3b8;
+}
+
+/* Call to action section */
+.ctaSection {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  text-align: center;
+}
+
+html[data-theme='dark'] .ctaSection {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 996px) {
+  .bookHero {
+    padding: 3rem 1rem; /* Add side padding on mobile */
+  }
+
+  .mainTitle {
+    font-size: 2.25rem !important;
+  }
+
+  .tagline {
+    font-size: 1.25rem !important;
+  }
+
+  .heroDescription {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .featureCard,
+  .outcomeCard,
+  .testimonialCard {
+    margin: 1rem 0.5rem; /* Add side margins on mobile */
+  }
+
+  .bookStats {
+    gap: 1rem;
+  }
+
+  .statItem {
+    min-width: 60px;
+    padding: 0.75rem;
+  }
+
+  .statNumber {
+    font-size: 1.5rem;
+  }
+
+  .coverDesign {
+    width: 160px;
+    height: 240px;
+  }
+
+  .heroButtons,
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featureLink {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .bookCover {
+    margin-top: 2rem; /* Add space on mobile */
+  }
+
+  .row {
+    flex-wrap: wrap; /* Ensure rows wrap on mobile */
+  }
+
+  .col {
+    flex-basis: 100%; /* Make columns stack on mobile */
+  }
+
+  .col.col--6,
+  .col.col--4,
+  .col.col--3 {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroContent {
+    text-align: center;
+    align-items: center;
+  }
+
+  .heroDescription {
+    text-align: center;
+    margin: 1.5rem auto;
+  }
+
+  .bookStats {
+    justify-content: center;
+  }
+
+  .featureCard {
+    margin: 1rem 0.25rem; /* Reduce margins further on small screens */
+  }
+
+  .outcomeCard {
+    margin: 1rem 0.25rem;
+  }
+
+  .testimonialCard {
+    margin: 1.5rem 0.25rem;
+  }
+
+  .sectionSubtitle {
+    padding: 0 1rem; /* Add padding for better readability */
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+  .mainTitle {
+    font-size: 2rem !important;
+  }
+
+  .tagline {
+    font-size: 1.1rem !important;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .bookStats {
+    flex-direction: column; /* Stack stats vertically on very small screens */
+    gap: 1rem;
+  }
+
+  .statItem {
+    width: 100%; /* Full width on very small screens */
+  }
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .bookHero,
+  .featureCard,
+  .outcomeCard,
+  .testimonialCard,
+  .statItem {
+    animation: none;
+    transition: none;
+  }
+}

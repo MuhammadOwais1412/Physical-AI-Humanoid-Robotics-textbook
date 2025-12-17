@@ -1,0 +1,32 @@
+.exerciseCard {
+  margin-bottom: 2rem;
+  border-left: 4px solid #4285f4;
+}
+
+.exerciseTitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.instructions h4 {
+  margin-bottom: 0.5rem;
+  color: #2563eb;
+}
+
+.hintSection,
+.solutionSection {
+  margin-top: 1rem;
+}
+
+.hint,
+.solution {
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.exerciseContent {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}

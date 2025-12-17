@@ -1,0 +1,32 @@
+.diagramCard {
+  margin-bottom: 2rem;
+  border-left: 4px solid #34a853;
+}
+
+.diagramTitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.diagramContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.description {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
