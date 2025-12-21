@@ -5,11 +5,11 @@ Modified principles: None (initial creation)
 Added sections: All (initial creation based on user prompt)
 Removed sections: None
 Templates requiring updates:
-- .specify/templates/plan-template.md: ✅ updated
-- .specify/templates/spec-template.md: ✅ updated
-- .specify/templates/tasks-template.md: ✅ updated
-- .specify/templates/commands/*.md: ✅ updated
-- README.md: ✅ updated
+- .specify/templates/plan-template.md: ⚠ pending
+- .specify/templates/spec-template.md: ⚠ pending
+- .specify/templates/tasks-template.md: ⚠ pending
+- .specify/templates/commands/*.md: ⚠ pending
+- README.md: ⚠ pending
 Follow-up TODOs: None
 -->
 # Project Constitution for "Physical AI & Humanoid Robotics" Textbook
@@ -101,8 +101,51 @@ All constitutional rules, technical decisions, and workflow standards MUST be de
 - **Dependency Management**: Strict dependency management to mitigate supply chain risks.
 - **Obsolescence Planning**: Regular review of tooling and dependencies to plan for upgrades or replacements.
 - **Backup & Recovery**: Comprehensive backup and recovery strategies for all project data and content.
+- **Phase 2 Specific Safeguards**: Additional security and privacy measures MUST be implemented for the RAG chatbot, including user query logging policies, data retention limits, and secure handling of API keys for external services.
 
-## 14. Success Criteria (Clear, Measurable, Enforceable)
+## 14. Phase 2: RAG Chatbot Architecture & Integration Standards
+
+### 14.1. RAG Architecture Rules
+- **Data Flow**: The RAG pipeline MUST follow a strict data flow: user query → embedding generation → vector similarity search → context retrieval → agent response generation → frontend display. No shortcuts or bypassing of retrieval steps are permitted.
+- **Retrieval Boundaries**: The chatbot MUST only retrieve and reference content from the approved textbook corpus and associated documentation. No external content sources are allowed without explicit architectural approval.
+- **Embedding Constraints**: All embeddings MUST use Cohere models as specified in the project architecture. Custom embedding models are prohibited without explicit justification and approval.
+- **Vector Store Limits**: The Qdrant Cloud free tier usage MUST NOT exceed allocated storage and query limits. All vector operations MUST be optimized to fit within free tier constraints.
+
+### 14.2. Backend Responsibilities (FastAPI)
+- **API Contracts**: All backend endpoints MUST provide OpenAPI/Swagger documentation and follow RESTful design principles with proper HTTP status codes.
+- **Error Handling**: The backend MUST implement comprehensive error handling with meaningful error messages and appropriate HTTP status codes (4xx for client errors, 5xx for server errors).
+- **Latency Expectations**: API endpoints MUST respond within 5 seconds for 95% of requests. Timeout handling MUST be implemented for any operation that might exceed this threshold.
+- **Reliability**: The backend MUST maintain >99% availability during peak usage hours and implement graceful degradation when vector store or embedding services are unavailable.
+
+### 14.3. Frontend & UI Constraints (Docusaurus Integration)
+- **Non-Intrusive Integration**: The chatbot UI MUST be seamlessly integrated into the Docusaurus book interface without disrupting the reading experience. Placement should be unobtrusive but accessible.
+- **UX Guarantees**: The chatbot interface MUST provide clear feedback during loading states, error conditions, and when no relevant results are found.
+- **Responsive Design**: Chatbot UI elements MUST be fully responsive and accessible across all device sizes and screen readers.
+- **Context Awareness**: The frontend MUST provide contextual awareness of the current textbook section to enhance query relevance.
+
+### 14.4. Agent Behavior Rules (OpenAI Agents/ChatKit SDKs)
+- **Grounding Requirements**: The AI agent MUST ground all responses in retrieved textbook content and explicitly cite sources when providing answers.
+- **Hallucination Prevention**: The agent MUST NOT fabricate information or make claims not supported by the retrieved context. When uncertain, the agent MUST indicate limitations rather than guessing.
+- **Source Attribution**: All information provided by the chatbot MUST be attributed to specific textbook sections, chapters, or pages when possible. Responses MUST indicate when information comes from the textbook versus general knowledge.
+- **Safety Filters**: The agent MUST implement content safety filters to prevent generation of inappropriate or harmful responses.
+
+### 14.5. Security & Data Safety
+- **Data Access Boundaries**: The system MUST only access and process content from the approved textbook corpus. No personal user data should be stored or processed without explicit consent.
+- **Secrets Handling**: All API keys, connection strings, and sensitive credentials MUST be stored in environment variables and NEVER committed to version control.
+- **User Interaction Safety**: The system MUST implement rate limiting and abuse prevention mechanisms to protect against malicious usage patterns.
+
+### 14.6. Operational & Scaling Considerations
+- **Free-Tier Limitations**: All system components MUST operate within the constraints of free-tier services (Qdrant Cloud, Neon Serverless Postgres) with monitoring in place to alert when approaching limits.
+- **Performance Degradation**: The system MUST implement graceful degradation strategies when vector store or embedding services are slow or unavailable, falling back to cached responses or polite user notifications.
+- **Failure Modes**: Clear operational procedures MUST be defined for handling vector store outages, embedding service failures, and backend connectivity issues.
+
+### 14.7. Ownership & Responsibilities
+- **Content Layer**: The textbook content team retains ownership of all corpus content and is responsible for maintaining accuracy and relevance.
+- **Backend Logic**: The backend team owns API development, deployment, and maintenance of the FastAPI services.
+- **Agent Logic**: The AI/ML team owns the agent behavior, retrieval algorithms, and response generation logic.
+- **UI Integration**: The frontend team owns the Docusaurus integration, user experience, and accessibility of the chatbot interface.
+
+## 15. Success Criteria (Clear, Measurable, Enforceable)
 - **Completion Rate**: 100% of specified content topics covered in the textbook.
 - **Technical Accuracy**: < 0.5% error rate in code examples and technical explanations as identified by reviews/tests.
 - **User Engagement**: Average time spent per page > 3 minutes (if analytics implemented).
@@ -110,5 +153,8 @@ All constitutional rules, technical decisions, and workflow standards MUST be de
 - **Deployment Reliability**: > 99.9% uptime for the GitHub Pages site.
 - **Spec-Kit Plus Compliance**: All specifications pass automated Spec-Kit Plus validation.
 - **Claude Code Utilization**: Claude Code is successfully integrated into at least 70% of content generation and documentation automation tasks.
+- **RAG Performance**: Chatbot responses are generated within 5 seconds for 95% of queries.
+- **Response Accuracy**: > 90% of chatbot responses are factually accurate and properly attributed to source materials.
+- **User Satisfaction**: > 80% positive feedback on chatbot usefulness and accuracy from user testing.
 
 Version: 1.0.0 | Ratified: 2025-12-05 | Last Amended: 2025-12-05

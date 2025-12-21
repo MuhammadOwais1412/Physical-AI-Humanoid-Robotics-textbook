@@ -181,12 +181,6 @@ Each module contains 3-5 chapters with the following hierarchy:
 - **DR-026**: Lesson pages MUST support embedded multimedia content
 - **DR-027**: Assignment pages MUST include submission guidelines and rubrics
 
-### Custom Components
-- **DR-028**: Interactive simulation components MUST be embeddable
-- **DR-029**: Code playground components MUST support live editing
-- **DR-030**: Assessment components MUST provide immediate feedback
-- **DR-031**: Progress tracking components MUST be available for student use
-
 ## 9. Content Rules & Constraints
 
 ### Forbidden Content

@@ -148,49 +148,18 @@ description: "Task list for Physical AI & Humanoid Robotics textbook implementat
 - [X] T051 [US5] Update content files to include assessment elements
 
 ---
-## Phase 8: User Story 6 - Multimedia & Interactive Elements (Priority: P6)
-
-**Goal**: Add diagrams, simulations, and interactive elements to enhance learning experience
-
-**Independent Test**: Students can interact with diagrams, see visual representations, and access multimedia content
-
-### Implementation for User Story 6
-
-- [ ] T052 [P] [US6] Create diagrams and visual assets in static/img/
-- [ ] T053 [P] [US6] Add video content and multimedia in static/media/
-- [ ] T054 [US6] Implement Mermaid diagram components in MDX
-- [ ] T055 [US6] Add interactive simulation components in src/components/
-- [ ] T056 [US6] Integrate multimedia elements throughout textbook content
-- [ ] T057 [US6] Optimize all assets for web delivery
-
----
-## Phase 9: User Story 7 - Accessibility & Internationalization (Priority: P7)
-
-**Goal**: Ensure the textbook meets accessibility standards and can support internationalization
-
-**Independent Test**: Textbook meets WCAG 2.1 AA standards and supports multiple languages
-
-### Implementation for User Story 7
-
-- [ ] T058 [P] [US7] Implement accessibility features throughout the site
-- [ ] T059 [US7] Add internationalization support with i18n configuration
-- [ ] T060 [US7] Create accessibility documentation and testing procedures
-- [ ] T061 [US7] Update all content with proper alt text and semantic structure
-- [ ] T062 [US7] Test with accessibility tools and make necessary adjustments
-
----
-## Phase 10: Polish & Cross-Cutting Concerns
+## Phase 8: Polish & Cross-Cutting Concerns
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T063 [P] Documentation updates and consistency review across all modules
-- [ ] T064 Code cleanup and refactoring of custom components
-- [ ] T065 Performance optimization across all modules
-- [ ] T066 [P] Add comprehensive glossary in docs/glossary.md
-- [ ] T067 [P] Create index and cross-references between modules
-- [ ] T068 Security hardening and content validation
-- [ ] T069 Run quickstart.md validation and fix any issues
-- [ ] T070 Final build and deployment testing
+- [X] T052 [P] Documentation updates and consistency review across all modules
+- [X] T053 Code cleanup and refactoring of custom components
+- [X] T054 Performance optimization across all modules
+- [X] T055 [P] Add comprehensive glossary in docs/glossary.md
+- [X] T056 [P] Create index and cross-references between modules
+- [X] T057 Security hardening and content validation
+- [X] T058 Run quickstart.md validation and fix any issues
+- [X] T059 Final build and deployment testing
 
 ---
 ## Dependencies & Execution Order
@@ -211,8 +180,6 @@ description: "Task list for Physical AI & Humanoid Robotics textbook implementat
 - **User Story 3 (P3)**: Can start after Foundational (Phase 2) - May integrate with US1/US2 but should be independently testable
 - **User Story 4 (P4)**: Can start after Foundational (Phase 2) - May integrate with US1/US2/US3 but should be independently testable
 - **User Story 5 (P5)**: Can start after Foundational (Phase 2) - May integrate with all previous stories
-- **User Story 6 (P6)**: Can start after Foundational (Phase 2) - Enhances all previous stories
-- **User Story 7 (P7)**: Can start after Foundational (Phase 2) - Applies to all content
 
 ### Within Each User Story
 

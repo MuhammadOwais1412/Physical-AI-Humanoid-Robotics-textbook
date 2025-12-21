@@ -1,3 +1,8 @@
+---
+sidebar_position: 3
+title: Index
+---
+
 # Index
 
 This index provides cross-references to topics covered throughout the Physical AI & Humanoid Robotics textbook.

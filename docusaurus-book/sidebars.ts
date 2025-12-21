@@ -64,8 +64,10 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Reference',
       items: [
+        'quickstart',
         'glossary',
         'index',
+        'accessibility',
       ],
     },
   ],

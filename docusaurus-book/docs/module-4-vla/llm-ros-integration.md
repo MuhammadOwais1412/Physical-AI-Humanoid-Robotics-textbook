@@ -2,6 +2,7 @@
 title: LLM-ROS Integration
 sidebar_label: LLM-ROS Integration
 description: Integrating Large Language Models with ROS for action translation and planning
+sidebar_position: 2
 ---
 
 # LLM-ROS Integration

@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+title: Glossary
+---
+
 # Glossary
 
 This glossary defines key terms used throughout the Physical AI & Humanoid Robotics textbook.

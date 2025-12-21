@@ -15,10 +15,10 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-organization.github.io', // TODO: Update with actual deployment URL
+  url: 'https://your-domain.vercel.app', // Update with your actual Vercel deployment URL
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/physical-ai-textbook/',
+  // For Vercel deployment, use '/' for root domain or '/repo-name' if in subdirectory
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -50,10 +50,10 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/your-organization/physical-ai-textbook/edit/main/', // TODO: Update with actual repository URL
+          editUrl: 'https://github.com/your-org/physical-ai-textbook/edit/main/', // TODO: Update with actual repository URL
           // Options for docs versioning
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: './src/css/book-theme.css',
@@ -116,8 +116,8 @@ const config: Config = {
       title: 'Physical AI Textbook',
       logo: {
         alt: 'Physical AI & Humanoid Robotics Logo',
-        src: 'img/logo.svg',
-        srcDark: 'img/logo.svg', // Add dark mode logo if available
+        src: 'img/logo.png',
+        srcDark: 'img/logo.png', // Add dark mode logo if available
       },
       items: [
         {
@@ -127,7 +127,7 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          href: 'https://github.com/your-organization/physical-ai-textbook',
+          href: 'https://github.com/your-org/physical-ai-textbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -175,7 +175,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/your-organization/physical-ai-textbook',
+              href: 'https://github.com/your-org/physical-ai-textbook',
             },
           ],
         },

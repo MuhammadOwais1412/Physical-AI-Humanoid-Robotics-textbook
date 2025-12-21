@@ -1,3 +1,8 @@
+---
+sidebar_position: 4
+title: Accessibility Guidelines
+---
+
 # Accessibility Guidelines
 
 This document outlines the accessibility standards and testing procedures for the Physical AI & Humanoid Robotics textbook to ensure it meets WCAG 2.1 AA compliance.

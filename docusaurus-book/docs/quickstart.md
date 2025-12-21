@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+title: Quick Start Guide
+---
+
 # Quick Start Guide: Physical AI & Humanoid Robotics
 
 This quick start guide will help you get up and running with the Physical AI & Humanoid Robotics textbook and its associated code examples.
