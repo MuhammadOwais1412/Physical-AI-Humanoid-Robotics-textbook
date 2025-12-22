@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-domain.vercel.app', // Update with your actual Vercel deployment URL
+  url: 'https://physical-ai-humanoid-robotics-textbook.vercel.app', // Update with your actual Vercel deployment URL
   // Set the /<baseUrl>/ pathname under which your site is served
   // For Vercel deployment, use '/' for root domain or '/repo-name' if in subdirectory
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'your-organization', // TODO: Update with actual GitHub organization/user name
-  projectName: 'physical-ai-textbook', // Usually your repo name.
+  organizationName: 'your-organization', // Update with actual GitHub organization/user name
+  projectName: 'Physical-AI-Humanoid-Robotics-textbook', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   markdown: {
@@ -50,7 +50,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/your-org/physical-ai-textbook/edit/main/', // TODO: Update with actual repository URL
+          editUrl: 'https://github.com/your-org/Physical-AI-Humanoid-Robotics-textbook/edit/main/', // Update with actual repository URL
           // Options for docs versioning
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
@@ -127,7 +127,7 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          href: 'https://github.com/your-org/physical-ai-textbook',
+          href: 'https://github.com/your-org/Physical-AI-Humanoid-Robotics-textbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -175,7 +175,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/your-org/physical-ai-textbook',
+              href: 'https://github.com/your-org/Physical-AI-Humanoid-Robotics-textbook',
             },
           ],
         },
