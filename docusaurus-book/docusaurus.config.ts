@@ -48,10 +48,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          routeBasePath: 'docs',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/your-org/Physical-AI-Humanoid-Robotics-textbook//tree/main/docusaurus-book', // Update with actual repository URL
+          editUrl: 'https://github.com/your-org/Physical-AI-Humanoid-Robotics-textbook/tree/main/', // Update with actual repository URL
           // Options for docs versioning
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
